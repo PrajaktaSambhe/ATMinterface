@@ -1,0 +1,94 @@
+package atm1;
+
+import java.lang.*;  
+import java.util.Scanner;  
+  
+//create ATM Example class to implement the ATM functionality  
+public class ATM1
+{  
+                                              
+    public static void main(String args[] )   //main method 
+    {   
+        int balance = 500000;
+        int withdraw; 
+        int deposit;  
+        //declare and initialize balance, withdraw, and deposit  
+          
+        Scanner sc = new Scanner(System.in);  
+        //input given by user  
+          
+        while(true)  
+        {   System.out.println("Enter the PIN :");
+            System.out.println("Please fill the information:");  
+            System.out.println("Select 1 for Check Balance ");  
+            System.out.println("Select 2 for Deposit");  
+            System.out.println("Select 3 for Withdraw");  
+            System.out.println("Select 4 for EXIT");  
+            System.out.print("Select the option for further proccess: \n");  
+              
+            int type = sc.nextInt();
+            if(type<=10000)
+            {
+              System.out.println("Pin is valid continue Proccess \n");
+              
+            }
+            else 
+            {
+             System.out.println("Pin is invalid !"); 
+            
+            }
+            
+            int select = sc.nextInt();  
+           
+            switch(select)  //select value 
+            {  
+            case 1:  
+               
+            System.out.println("Balance : "+balance);  
+            //displaying the total balance of the user  
+            System.out.println("");  
+            break;  
+   
+   
+            case 2:  
+            System.out.print("Enter money to be deposited:");  
+                      
+            deposit = sc.nextInt();  
+             //get deposite amount from te user              
+            balance = balance + deposit;  
+            //add deposite amount to balance
+            System.out.println("Your Money has been successfully depsited");  
+            System.out.println(""); 
+            break;  
+   
+            
+            case 3: 
+            System.out.print("Enter money to be withdrawn:");  
+             withdraw = sc.nextInt();  
+            //get value for  withdraw money 
+       
+            if(balance >= withdraw)  
+            //check whether the balance is greater than or equal to the withdrawal amount  
+            {  
+              
+            balance = balance - withdraw;  
+            //remaining total balance
+            System.out.println("Please collect your money");  
+            }  
+            else  
+            {  
+            
+            System.out.println("Insufficient Balance");  
+            //show custom error message   
+            }  
+            System.out.println("");  
+            break;  
+            
+           case 4:  
+           System.exit(0); 
+       
+            } 
+        }
+    
+    }
+}  
